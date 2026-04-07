@@ -1,0 +1,16 @@
+# Node
+node_modules/
+
+# Tailwind 
+output.css
+
+# MacOS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode
+.vscode/
