@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    <header class="px-18 py-11 flex justify-between items-center">
-        <button
-            class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-4 cursor-pointer flex items-center justify-center gap-3">
-            <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90"
-                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
-            </svg>
-            NEW TASK
-        </button>
-        <div class="flex gap-5">
+    <header class="px-18 py-11 flex items-center">
+        <div class="flex-1 flex justify-start">
+            <button
+                class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-4 cursor-pointer flex items-center justify-center gap-3">
+                <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90"
+                    viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
+                </svg>
+                NEW TASK
+            </button>
+        </div>
+        <div class="flex-1 flex justify-center gap-5">
             <button
                 class="group relative w-12 h-12 bg-all rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20">
                 <span
@@ -48,18 +50,52 @@
                 </span>
             </button>
         </div>
-        <button
-            class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-full border-black border-4 cursor-pointer transition-transform duration-300 hover:rotate-12">
-            L
-        </button>
+        <div class="flex-1 flex justify-end">
+            <button
+                class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-full border-black border-4 cursor-pointer transition-transform duration-300 hover:rotate-12">
+                L
+            </button>
+        </div>
+
     </header>
     <main class="px-12 grid grid-cols-4 gap-4">
         <div class="bg-background rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-4 py-4">TASK 1</h1>
-            <p class="font-inter text-base px-4 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 1</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
             <div class="flex items-center justify-between px-4 pb-4">
+                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="bg-progress rounded-full border-black border-3 hover:bg-primary duration-200 hover:cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                </button>
+            </div>
+        </div>
+        <div class="bg-background rounded-lg border-black border-3">
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 2</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center justify-between px-4 pb-4">
+                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="bg-pending rounded-full border-black border-3 hover:bg-progress duration-200 hover:cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1 text-background hover:text-black duration-200">MARK AS
+                        IN PROGRESS</p>
+                </button>
+            </div>
+        </div>
+        <div class="bg-background rounded-lg border-black border-3">
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 3</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center justify-between px-8 pb-4">
                 <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
@@ -69,11 +105,11 @@
             </div>
         </div>
         <div class="bg-background rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-4 py-4">TASK 2</h1>
-            <p class="font-inter text-base px-4 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 4</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
+            <div class="flex items-center justify-between px-8 pb-4">
                 <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
@@ -83,11 +119,11 @@
             </div>
         </div>
         <div class="bg-background rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-4 py-4">TASK 3</h1>
-            <p class="font-inter text-base px-4 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 5</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
+            <div class="flex items-center justify-between px-8 pb-4">
                 <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
@@ -97,11 +133,56 @@
             </div>
         </div>
         <div class="bg-background rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-4 py-4">TASK 4</h1>
-            <p class="font-inter text-base px-4 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 1</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
             <div class="flex items-center justify-between px-4 pb-4">
+                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="bg-progress rounded-full border-black border-3 hover:bg-primary duration-200 hover:cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                </button>
+            </div>
+        </div>
+        <div class="bg-background rounded-lg border-black border-3">
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 2</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center justify-between px-4 pb-4">
+                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="bg-pending rounded-full border-black border-3 hover:bg-progress duration-200 hover:cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1 text-background hover:text-black duration-200">MARK AS
+                        IN PROGRESS</p>
+                </button>
+            </div>
+        </div>
+        <div class="bg-background rounded-lg border-black border-3">
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 3</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center justify-between px-8 pb-4">
+                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button class="bg-progress rounded-full border-black border-3">
+                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                </button>
+            </div>
+        </div>
+        <div class="bg-background rounded-lg border-black border-3">
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 4</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center justify-between px-8 pb-4">
                 <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
@@ -111,11 +192,11 @@
             </div>
         </div>
         <div class="bg-background rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-4 py-4">TASK 5</h1>
-            <p class="font-inter text-base px-4 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 5</h1>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
+            <div class="flex items-center justify-between px-8 pb-4">
                 <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
@@ -125,6 +206,10 @@
             </div>
         </div>
     </main>
+
+    <div class="fixed bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style="background: linear-gradient(to bottom, transparent, var(--color-background));">
+    </div>
 </body>
 
 </html>
