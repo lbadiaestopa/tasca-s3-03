@@ -3,9 +3,10 @@
 
 @theme {
   --color-primary: #95FF00;
-  --color-all: #004DFF;
   --color-progress: #FFEA00;
   --color-pending: #FF3B00;
   --color-background: #F5F5F5;
+  --color-background-secondary: #F4FFE5;
+  --color-text-secondary: #676767;
   --font-inter: 'Inter', sans-serif;
 }
