@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main view</title>
     <link href="./stylesheets/output.css" rel="stylesheet">
 </head>
 
-<body>
-    <header class="px-18 py-11 flex items-center bg-background-secondary">
+<body class="bg-background-secondary">
+    <header
+        class="px-18 py-5 mb-5 flex items-center bg-background-secondary sticky top-0 z-9999 border-b-3 border-black">
         <div class="flex-1 flex justify-start">
             <button
                 class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-3 cursor-pointer flex items-center justify-center gap-3">
@@ -22,28 +23,28 @@
         </div>
         <div class="flex-1 flex justify-center gap-5">
             <button
-                class="group relative w-12 h-12 bg-all rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20">
+                class="group relative w-12 h-12 bg-white rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20  cursor-pointer">
                 <span
-                    class="absolute left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold text-white">
+                    class="absolute left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">
                     ALL
                 </span>
             </button>
             <button
-                class="group relative w-12 h-12 bg-pending rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-30">
+                class="group relative w-12 h-12 bg-pending rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-30 cursor-pointer">
                 <span
                     class="absolute left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold text-white">
                     PENDING
                 </span>
             </button>
             <button
-                class="group relative w-12 h-12 bg-progress rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-38">
+                class="group relative w-12 h-12 bg-progress rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-38 cursor-pointer">
                 <span
                     class="absolute left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">
                     IN PROGRESS
                 </span>
             </button>
             <button
-                class="group relative w-12 h-12 bg-primary rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36">
+                class="group relative w-12 h-12 bg-primary rounded-full border-black border-3 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36 cursor-pointer">
                 <span
                     class="absolute left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">
                     COMPLETED
@@ -56,180 +57,244 @@
                 L
             </button>
         </div>
-
     </header>
+
     <main class="px-12 grid grid-cols-4 gap-4 bg-background-secondary">
-        <div class="bg-white rounded-lg border-black border-3">
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
             <div class="flex justify-between items-center">
                 <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 1</h1>
                 <div
-                    class="bg-primary font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-12 h-12 flex items-center justify-center mr-6">
-                    L
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
                 </div>
             </div>
-            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                aliquam lectus a justo imperdiet bibendum.
-                Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="overflow-hidden pb-4">
+                <p class="font-inter text-base px-8 line-clamp-6">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.
+                    Proin placerat turpis eget nulla tincidunt feugiat.Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.
+                    Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            </div>
+            <div class="flex items-center px-4 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
                 <button
-                    class="bg-progress rounded-full border-black border-3 hover:bg-primary duration-200 hover:cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
             <div class="flex justify-between items-center">
                 <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 2</h1>
                 <div
-                    class="bg-primary font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-12 h-12 flex items-center justify-center mr-6">
-                    L
+                    class="bg-pending font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
                 </div>
             </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
                 <button
-                    class="bg-pending rounded-full border-black border-3 hover:bg-progress duration-200 hover:cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1 text-background hover:text-black duration-200">MARK AS
-                        IN PROGRESS</p>
+                    class="group bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">START</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
             <div class="flex justify-between items-center">
                 <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 3</h1>
                 <div
-                    class="bg-primary font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-12 h-12 flex items-center justify-center mr-6">
-                    L
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
                 </div>
             </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
-                <button class="bg-progress rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                <button
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
             <div class="flex justify-between items-center">
                 <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 4</h1>
                 <div
-                    class="bg-primary font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-12 h-12 flex items-center justify-center mr-6">
-                    L
+                    class="bg-pending font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
                 </div>
             </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
-            </div>
-            <div class="flex justify-center pb-4">
-                <button class="bg-pending rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1 text-background">MARK AS IN PROGRESS</p>
-                </button>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 5</h1>
-            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                aliquam lectus a justo imperdiet bibendum.
-                Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
-            </div>
-            <div class="flex justify-center pb-4">
-                <button class="bg-progress rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
-                </button>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 1</h1>
-            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                aliquam lectus a justo imperdiet bibendum.
-                Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
                 <button
-                    class="bg-progress rounded-full border-black border-3 hover:bg-primary duration-200 hover:cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                    class="group bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">START</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 2</h1>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 5</h1>
+                <div
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-4 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
                 <button
-                    class="bg-pending rounded-full border-black border-3 hover:bg-progress duration-200 hover:cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1 text-background hover:text-black duration-200">MARK AS
-                        IN PROGRESS</p>
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 3</h1>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 6</h1>
+                <div
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
-                <button class="bg-progress rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                <button
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 4</h1>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 7</h1>
+                <div
+                    class="bg-pending font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
-                <button class="bg-pending rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1 text-background">MARK AS IN PROGRESS</p>
+                <button
+                    class="group bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">START</p>
                 </button>
             </div>
         </div>
-        <div class="bg-white rounded-lg border-black border-3">
-            <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 5</h1>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 8</h1>
+                <div
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
             <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 aliquam lectus a justo imperdiet bibendum.
                 Proin placerat turpis eget nulla tincidunt feugiat.</p>
-            <div class="flex items-center justify-between px-8 pb-4">
-                <p class="font-inter text-base mx-auto">Created at <b>2026-04-08</b> by <b>LLUC</b></p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
             </div>
             <div class="flex justify-center pb-4">
-                <button class="bg-progress rounded-full border-black border-3">
-                    <p class="font-inter font-extrabold px-3 py-1">MARK AS COMPLETE</p>
+                <button
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 9</h1>
+                <div
+                    class="bg-pending font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="group bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">START</p>
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="bg-white rounded-lg border-black border-3 cursor-pointer transition-all duration-200 hover:-translate-y-1">
+            <div class="flex justify-between items-center">
+                <h1 class="font-inter font-extrabold text-2xl px-8 py-4">TASK 10</h1>
+                <div
+                    class="bg-progress font-inter text-2xl font-extrabold rounded-xl border-black border-3 w-8 h-8 flex items-center justify-center mr-4">
+                </div>
+            </div>
+            <p class="font-inter text-base px-8 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                aliquam lectus a justo imperdiet bibendum.
+                Proin placerat turpis eget nulla tincidunt feugiat.</p>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b
+                        class="text-black">2026-04-08</b> by <b class="text-black">LLUC</b></p>
+            </div>
+            <div class="flex justify-center pb-4">
+                <button
+                    class="bg-white rounded-full border-black border-3 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">COMPLETE</p>
                 </button>
             </div>
         </div>
     </main>
+    <footer class="px-18 py-11 bg-background-secondary"></footer>
 </body>
 
 </html>
