@@ -7,6 +7,13 @@
   --color-pending: #FF3B00;
   --color-background: #F5F5F5;
   --color-background-secondary: #F4FFE5;
+<<<<<<< HEAD
   --color-text-secondary: #676767;
+=======
+<<<<<<< Updated upstream
+=======
+  --color-text-secondary: #676767;
+>>>>>>> Stashed changes
+>>>>>>> 957a544 (feat: add colors)
   --font-inter: 'Inter', sans-serif;
 }

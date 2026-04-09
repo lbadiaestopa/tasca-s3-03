@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./stylesheets/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-background-secondary min-h-screen flex flex-col">
+    <header class="px-18 py-11 flex justify-end absolute w-full">
+        <button
+            class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-xl border-black border-3 cursor-pointer transition-transform duration-300 hover:rotate-12">
+            L
+        </button>
+    </header>
+    <main class="px-12 flex-1 flex items-center justify-center">
+        <div class="bg-background rounded-lg border-black border-3 w-1/2 min-w-xl mx-auto">
+            <button
+                class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mr-4 mt-4 rounded-full border-black border-3 flex items-center gap-1 cursor-pointer mx-auto">
+                <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-135"
+                    viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
+                </svg>
+                CLOSE
+            </button>
+            <h1 class="font-inter font-extrabold text-2xl px-12 pt-6 pb-2">TITLE</h1>
+            <div class="bg-white rounded-lg border-black border-3 h-10 min-h-10 mx-4 cursor-text"></div>
+
+            <h1 class="font-inter font-extrabold text-2xl px-12 pt-6 pb-2">DESCRIPTION</h1>
+            <div class="bg-white rounded-lg border-black border-3 h-10 min-h-70 mx-4 mb-6 cursor-text"></div>
+            <div class="flex-1 flex justify-center mb-6">
+                <button
+                    class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-3 cursor-pointer flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90"
+                        viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
+                    </svg>
+                    ADD
+                </button>
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>
