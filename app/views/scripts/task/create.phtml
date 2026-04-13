@@ -6,14 +6,15 @@
 </header>
 <main class="bg-background-secondary mt-6 px-12 flex-1 flex items-center justify-center">
     <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background">
-        <button
-            class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mr-4 mt-4 rounded-full border-black border-2 flex items-center gap-1 cursor-pointer mx-auto">
-            <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
-                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
-            </svg>
-            CLOSE
-        </button>
+        <div class="flex justify-end">
+            <a href="/" class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mt-4 rounded-full border-black border-2 inline-flex items-center gap-1 cursor-pointer">
+                <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
+                    viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
+                </svg>
+                CLOSE
+            </a>
+        </div>
         <h1 class="font-inter font-extrabold text-2xl px-8 pt-6 pb-2">TITLE</h1>
         <input placeholder="This task needs a title..." class="rounded-lg border-black border-2 h-10 px-4 w-full cursor-text"></input>
 
