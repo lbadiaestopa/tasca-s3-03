@@ -23,7 +23,6 @@
         </button>
     </div>
 
-    <!--Falta afegir href a l'element 'a'-->
     <div class="flex-1 flex justify-end">
         <a class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-xl border-black border-2 cursor-pointer transition-transform duration-300 hover:rotate-12">
             L
@@ -32,39 +31,46 @@
 </header>
 
 <main class="px-12 grid grid-cols-4 gap-4 bg-background-secondary">
-    <?php
-    $tasks = [
-        ['title' => 'TASK 1', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum. Proin placerat turpis eget nulla tincidunt feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-        ['title' => 'TASK 2', 'status' => 'pending', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'START'],
-        ['title' => 'TASK 3', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-        ['title' => 'TASK 4', 'status' => 'pending', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'START'],
-        ['title' => 'TASK 5', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-        ['title' => 'TASK 6', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-        ['title' => 'TASK 7', 'status' => 'pending', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'START'],
-        ['title' => 'TASK 8', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-        ['title' => 'TASK 9', 'status' => 'pending', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'START'],
-        ['title' => 'TASK 10', 'status' => 'progress', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam lectus a justo imperdiet bibendum.', 'date' => '2026-04-08', 'user' => 'LLUC', 'action' => 'COMPLETE'],
-    ];
-    foreach ($tasks as $task) :
-    ?>
-        <div class="bg-white rounded-lg border-black border-2 cursor-pointer transition-all duration-200 hover:-translate-y-1 flex flex-col">
-            <div class="flex justify-between items-center">
-                <h1 class="font-inter font-extrabold text-2xl px-8 py-4"><?= $task['title'] ?></h1>
-                <div class="bg-<?= $task['status'] ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
-            </div>
-            <div class="overflow-hidden px-8 pb-4 flex-1">
-                <p class="font-inter text-base line-clamp-6"><?= $task['description'] ?></p>
-            </div>
-            <div class="flex items-center px-4 pb-4">
-                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['date'] ?></b> by <b class="text-black"><?= $task['user'] ?></b></p>
-            </div>
-            <div class="flex justify-center pb-4 mt-auto">
-                <button class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1"><?= $task['action'] ?></p>
-                </button>
-            </div>
+    <?php if (count($this->tasks) === 0): ?>
+        <div class=" flex items-center gap-3 ml-32">
+            <svg
+                class="w-12 h-12 rotate-90 -translate-y-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M18 6v6a3 3 0 0 1 -3 3h-10l4 -4m0 8l-4 -4" />
+            </svg>
+
+            <h1 class="font-inter text-xl font-extrabold">
+                ADD YOUR FIRST TASK!
+            </h1>
         </div>
-    <?php endforeach; ?>
+    <?php else: ?>
+        <?php foreach ($this->tasks as $task) : ?>
+            <div class="bg-white rounded-lg border-black border-2 cursor-pointer transition-all duration-200 hover:-translate-y-1 flex flex-col">
+                <div class="flex justify-between items-center">
+                    <h1 class="font-inter font-extrabold text-2xl px-8 py-4"><?= htmlspecialchars($task['title']) ?></h1>
+                    <div class="bg-<?= $task['status'] ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
+                </div>
+                <div class="overflow-hidden px-8 pb-4 flex-1">
+                    <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
+                </div>
+                <div class="flex items-center px-4 pb-4">
+                    <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= $task['userId'] ?></b></p>
+                </div>
+                <div class="flex justify-center pb-4 mt-auto">
+                    <button class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                        <p class="font-inter font-extrabold px-3 py-1"><?= $task['status'] ?></p>
+                    </button>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </main>
 
 <footer class="px-20 py-11 bg-background-secondary"></footer>
