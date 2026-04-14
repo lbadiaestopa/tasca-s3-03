@@ -1,6 +1,6 @@
 <?php
 
-class TaskModel extends Model
+class TaskModel
 {
     private $filePath;
     
