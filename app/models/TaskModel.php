@@ -46,7 +46,9 @@ class TaskModel
 
         $content = file_get_contents($this->filePath);
 
-        return $content ? json_decode($content, true) : [];
+        $data = json_decode($content, true);
+
+        return is_array($data) ? $data : [];
     }
 
     private function generateTaskId(array $tasks): int
@@ -56,5 +58,10 @@ class TaskModel
         }
 
         return max(array_column($tasks, 'id')) + 1;
+    }
+
+    public function getTasks(): array
+    {
+        return $this->readTasks();
     }
 }
