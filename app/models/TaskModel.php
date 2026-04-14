@@ -45,7 +45,6 @@ class TaskModel
         }
 
         $content = file_get_contents($this->filePath);
-
         $data = json_decode($content, true);
 
         return is_array($data) ? $data : [];

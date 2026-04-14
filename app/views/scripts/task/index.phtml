@@ -52,7 +52,7 @@
         </div>
     <?php else: ?>
         <?php foreach ($this->tasks as $task) : ?>
-            <div class="bg-white rounded-lg border-black border-2 cursor-pointer transition-all duration-200 hover:-translate-y-1 flex flex-col">
+            <a href=/task/<?= $task['id'] ?> class="bg-white rounded-lg border-black border-2 cursor-pointer transition-all duration-200 hover:-translate-y-1 flex flex-col">
                 <div class="flex justify-between items-center">
                     <h1 class="font-inter font-extrabold text-2xl px-8 py-4"><?= htmlspecialchars($task['title']) ?></h1>
                     <div class="bg-<?= $task['status'] ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
@@ -68,7 +68,7 @@
                         <p class="font-inter font-extrabold px-3 py-1"><?= $task['status'] ?></p>
                     </button>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     <?php endif; ?>
 </main>
