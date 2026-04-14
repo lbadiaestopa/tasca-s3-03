@@ -23,6 +23,17 @@ class TaskController extends Controller
         exit;
     }
 
+    public function detailAction()
+    {
+        $model = new TaskModel();
+
+        $id = (int) $this->_getParam('id', 0);
+
+        $task = $model->getTaskById($id);
+
+        $this->view->task = $task;
+    }
+
     public function editAction() {}
 
     public function deleteAction() {}
