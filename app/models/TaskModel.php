@@ -16,7 +16,7 @@ class TaskModel
         $tasks = $this->readTasks();
 
         $task = [
-            "id" => 1, //canviar per paràmetre
+            "id" => $this->generateTaskId($tasks),
             "title" => $title,
             "description" => $description,
             "status" => 'pending',
@@ -47,5 +47,14 @@ class TaskModel
         $content = file_get_contents($this->filePath);
 
         return $content ? json_decode($content, true) : [];
+    }
+
+    private function generateTaskId(array $tasks): int
+    {
+        if (empty($tasks)) {
+            return 1;
+        }
+
+        return max(array_column($tasks, 'id')) + 1;
     }
 }
