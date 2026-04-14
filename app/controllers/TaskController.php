@@ -4,7 +4,9 @@ class TaskController extends Controller
 {
     public function indexAction()
     {
-        
+        $model = new TaskModel();
+        $tasks = $model->getTasks();
+        $this->view->tasks = $tasks;
     }
 
     public function detailAction()
