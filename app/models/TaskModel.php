@@ -91,4 +91,19 @@ class TaskModel
         $data = array_values($data);
         $this->writeTasks($data);
     }
+
+    public function updateTask(int $id, array $newData): void 
+    {
+        $data = $this->readTasks();
+
+        foreach ($data as $key => $task) {
+            if (isset($task['id']) && (int)$task['id'] === $id) {
+                $data[$key]['title'] = $newData['title'];
+                $data[$key]['description'] = $newData['description'];
+                break;
+            }
+        }
+
+        $this->writeTasks($data);
+    }
 }
