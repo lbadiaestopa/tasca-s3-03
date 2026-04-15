@@ -106,4 +106,18 @@ class TaskModel
 
         $this->writeTasks($data);
     }
+
+    public function updateStatus(int $id, string $status): void 
+    {
+        $tasks = $this->readTasks();
+
+        foreach ($tasks as $key => $task) {
+            if (isset($task['id']) && (int)$task['id'] === $id) {
+                $tasks[$key]['status'] = $status;
+                break;
+            }
+        }
+
+        $this->writeTasks($tasks);
+    }
 }
