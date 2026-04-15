@@ -9,7 +9,6 @@ class TaskModel
         $this->filePath = ROOT_PATH . '/data/tasks.json';
     }
 
-    // Canviar string per enum a $status
     public function addTask(string $title, string $description, string $status, int $userId): void
     {
 
@@ -38,17 +37,18 @@ class TaskModel
         );
     }
 
-    private function readTasks(): array
+    private function readTasks(): ?array
     {
         if (!file_exists($this->filePath)) {
-            return [];
+            return null;
         }
 
-        $content = file_get_contents($this->filePath);
+        $data = json_decode(
+            file_get_contents($this->filePath), 
+            true
+        );
 
-        $data = json_decode($content, true);
-
-        return is_array($data) ? $data : [];
+        return $data;
     }
 
     private function generateTaskId(array $tasks): int
