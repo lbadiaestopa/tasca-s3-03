@@ -69,5 +69,17 @@ class TaskController extends Controller
         exit;
     }
 
+    public function statusAction()
+    {
+        $id = (int) $_POST['id'];
+        $status = $_POST['status'];
+
+        $model = new TaskModel();
+        $model->updateStatus($id, $status);
+        
+        header('Location: /task/edit/' . $id);
+        exit;
+    }
+
     public function completedAction() {}
 }
