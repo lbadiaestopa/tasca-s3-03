@@ -37,10 +37,10 @@ class TaskModel
         );
     }
 
-    private function readTasks(): array
+    private function readTasks(): ?array
     {
         if (!file_exists($this->filePath)) {
-            return [];
+            return null;
         }
 
         $data = json_decode(file_get_contents($this->filePath), true);
