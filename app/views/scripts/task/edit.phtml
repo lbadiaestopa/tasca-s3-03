@@ -21,9 +21,43 @@
              CLOSE
          </a>
 
+         <form action="/task/status" method="POST">
+                 <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
+
+                 <div class="flex gap-2 mb-4">
+                     <button
+                         type="submit"
+                         name="status"
+                         value="pending"
+                         class="px-4 py-1 border-2 border-black rounded-full
+                <?= $this->task['status'] === 'pending' ? 'bg-pending text-white' : 'bg-white' ?> font-extrabold">
+                         PENDING
+                     </button>
+
+                     <button
+                         type="submit"
+                         name="status"
+                         value="in-progress"
+                         class="px-4 py-1 border-2 border-black rounded-full
+                <?= $this->task['status'] === 'in-progress' ? 'bg-progress' : 'bg-white' ?> font-extrabold">
+                         IN PROGRESS
+                     </button>
+
+                     <button
+                         type="submit"
+                         name="status"
+                         value="completed"
+                         class="px-4 py-1 border-2 border-black rounded-full
+                <?= $this->task['status'] === 'completed' ? 'bg-primary' : 'bg-white' ?> font-extrabold">
+                         COMPLETED
+                     </button>
+                 </div>
+             </form>
+
          <form action="/task/update" method="POST">
 
              <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
+             <input type="hidden" name="status" value="<?= $this->task['status'] ?>">
 
              <h1 class="font-inter font-extrabold text-2xl px-12 pt-6 pb-2">TITLE</h1>
              <input
@@ -36,7 +70,6 @@
              <textarea
                  name="description"
                  class="rounded-lg border-black border-2 px-4 py-2 mb-4 w-full h-32 cursor-text"><?= htmlspecialchars($this->task['description']) ?></textarea>
-
              <div class="flex-1 flex justify-center mb-6">
                  <button
                      type="submit"
@@ -44,7 +77,6 @@
                      EDIT
                  </button>
              </div>
-
          </form>
      </div>
  </main>
