@@ -32,10 +32,13 @@
             <h2 class="font-inter font-semibold text-lg mr-6 mb-8 text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
         </div>
         <div class="flex-1 flex justify-center mb-6 gap-6">
-            <button
-                class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-pending hover:text-white cursor-pointer">
-                DELETE
-            </button>
+            <form action="/task/delete" method="POST">
+                <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
+                <button
+                    class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-pending hover:text-white cursor-pointer">
+                    DELETE
+                </button>
+            </form>
             <a
                 href="/task/edit"
                 class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-primary cursor-pointer">
