@@ -9,15 +9,7 @@ class TaskController extends Controller
         $this->view->tasks = $tasks;
     }
 
-    public function detailAction()
-    {
-        
-    }
-
-    public function createAction()
-    {
-        
-    }
+    public function createAction() {}
 
     public function storeAction()
     {
@@ -31,18 +23,20 @@ class TaskController extends Controller
         exit;
     }
 
-    public function editAction()
+    public function detailAction()
     {
-        
+        $model = new TaskModel();
+
+        $id = (int) $this->_getParam('id', 0);
+
+        $task = $model->getTaskById($id);
+
+        $this->view->task = $task;
     }
 
-    public function deleteAction()
-    {
-        
-    }
+    public function editAction() {}
 
-    public function completedAction()
-    {
-        
-    }
+    public function deleteAction() {}
+
+    public function completedAction() {}
 }
