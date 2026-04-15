@@ -7,15 +7,19 @@
  </header>
 
  <main class="bg-background-secondary px-12">
-     <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background">
-         <button
-             class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mr-6 rounded-full border-black border-2 flex items-center mx-auto gap-1 mt-4 cursor-pointer">
-             <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
-                 viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background flex flex-col">
+         <a
+             href="/task/<?= $this->task['id'] ?>"
+             class="self-end inline-flex items-center gap-1 mt-4 px-3 py-1 rounded-full border-2 border-black bg-white font-inter text-lg font-extrabold group cursor-pointer">
+             <svg
+                 class="w-4 h-4 transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
+                 viewBox="0 0 16 16"
+                 fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
                  <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
              </svg>
              CLOSE
-         </button>
+         </a>
 
          <form action="/task/update" method="POST">
 
