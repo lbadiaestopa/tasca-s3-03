@@ -1,44 +1,46 @@
 <header class="bg-background-secondary px-20 py-5">
-        <div class="flex-1 flex justify-end">
+    <div class="flex-1 flex justify-end">
+        <button
+            class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-xl border-black border-2 cursor-pointer transition-transform duration-300 hover:rotate-12">
+            L
+        </button>
+    </div>
+</header>
+
+<main class="bg-background-secondary px-12">
+    <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background">
+        <div class="flex items-center justify-between">
+            <div
+                class="bg-primary rounded-lg border-black border-2 w-10 h-10 ml-6 mt-6 mb-2 flex items-center justify-center">
+                <h1 class="font-inter font-extrabold text-lg">L</h1>
+            </div>
+            <a
+                href="/"
+                class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mr-6 rounded-full border-black border-2 flex items-center gap-1 cursor-pointer">
+                <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
+                    viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
+                </svg>
+                CLOSE
+            </a>
+        </div>
+
+        <h1 class="font-inter font-extrabold text-2xl px-6 pt-4"><?= htmlspecialchars($this->task['title']) ?></h1>
+        <p class="font-inter text-base px-6 mt-2 mb-6"><?= nl2br(htmlspecialchars($this->task['description'])) ?></p>
+        <div class="flex items-center justify-between">
+            <div class="bg-progress font-inter text-lg font-extrabold w-fit px-4 py-1 mr-6 ml-6 mb-8 rounded-lg border-black border-2"><?= htmlspecialchars($this->task['status']) ?></div>
+            <h2 class="font-inter font-semibold text-lg mr-6 mb-8 text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
+        </div>
+        <div class="flex-1 flex justify-center mb-6 gap-6">
             <button
-        class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-xl border-black border-2 cursor-pointer transition-transform duration-300 hover:rotate-12">
-        L
-    </button>
+                class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-pending hover:text-white cursor-pointer">
+                DELETE
+            </button>
+            <a
+                href="/task/edit"
+                class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-primary cursor-pointer">
+                EDIT
+            </a>
         </div>
-    </header>
-
-    <main class="bg-background-secondary px-12">
-        <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background">
-            <div class="flex items-center justify-between">
-                <div
-                    class="bg-primary rounded-lg border-black border-2 w-10 h-10 ml-6 mt-6 mb-2 flex items-center justify-center">
-                    <h1 class="font-inter font-extrabold text-lg">L</h1>
-                </div>
-                <button
-                    class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mr-6 rounded-full border-black border-2 flex items-center gap-1 cursor-pointer">
-                    <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
-                        viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
-                    </svg>
-                    CLOSE
-                </button>
-            </div>
-
-            <h1 class="font-inter font-extrabold text-2xl px-6 pt-4"><?= htmlspecialchars($this->task['title']) ?></h1>
-            <p class="font-inter text-base px-6 mt-2 mb-6"><?= nl2br(htmlspecialchars($this->task['description'])) ?></p>
-            <div class="flex items-center justify-between">
-                <div class="bg-progress font-inter text-lg font-extrabold w-fit px-4 py-1 mr-6 ml-6 mb-8 rounded-lg border-black border-2"><?= htmlspecialchars($this->task['status']) ?></div>
-                <h2 class="font-inter font-semibold text-lg mr-6 mb-8 text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
-            </div>
-            <div class="flex-1 flex justify-center mb-6 gap-6">
-                <button
-                    class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-pending hover:text-white cursor-pointer">
-                    DELETE
-                </button>
-                <button
-                    class="bg-white font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 hover:bg-primary cursor-pointer">
-                    EDIT
-                </button>
-            </div>
-        </div>
-    </main>
+    </div>
+</main>
