@@ -1,5 +1,7 @@
 <?php
 
+use PHPUnit\Event\Code\NoTestCaseObjectOnCallStackException;
+
 class TaskController extends Controller
 {
     public function indexAction()
@@ -25,18 +27,31 @@ class TaskController extends Controller
 
     public function detailAction()
     {
+        $id = (int) $this->_getParam('id');
+
         $model = new TaskModel();
-
-        $id = (int) $this->_getParam('id', 0);
-
         $task = $model->getTaskById($id);
+
+        if (!$task) {
+            header('Location: /');
+            exit;
+        }
 
         $this->view->task = $task;
     }
 
     public function editAction() {}
 
-    public function deleteAction() {}
+    public function deleteAction()
+    {
+        $id = (int) $this->_getParam('id');
+
+        $model = new TaskModel();
+        $model->deleteTask($id);
+
+        header('Location: /');
+        exit;
+    }
 
     public function completedAction() {}
 }
