@@ -43,7 +43,10 @@ class TaskModel
             return null;
         }
 
-        $data = json_decode(file_get_contents($this->filePath), true);
+        $data = json_decode(
+            file_get_contents($this->filePath),
+             true
+        );
 
         return $data;
     }
@@ -73,5 +76,19 @@ class TaskModel
         }
 
         return null;
+    }
+
+    public function deleteTask(int $id): void 
+    {
+        $data = $this->readTasks();
+
+        foreach ($data as $key => $task) {
+            if (isset($task['id']) && (int)$task['id'] === $id) {
+                unset($data[$key]);
+            }
+        }
+
+        $data = array_values($data);
+        $this->writeTasks($data);
     }
 }
