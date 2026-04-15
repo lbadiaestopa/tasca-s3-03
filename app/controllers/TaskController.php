@@ -32,15 +32,19 @@ class TaskController extends Controller
         $model = new TaskModel();
         $task = $model->getTaskById($id);
 
-        if (!$task) {
-            header('Location: /');
-            exit;
-        }
-
         $this->view->task = $task;
     }
 
-    public function editAction() {}
+    public function editAction() 
+    {
+        $id = (int) $this->_getParam('id');
+
+        $model = new TaskModel();
+        $task = $model->getTaskById($id);
+
+
+        $this->view->task = $task;
+    }
 
     public function deleteAction()
     {
@@ -50,6 +54,18 @@ class TaskController extends Controller
         $model->deleteTask($id);
 
         header('Location: /');
+        exit;
+    }
+
+    public function updateAction()
+    {
+        $id = (int) $this->_getParam('id');
+        $newData = $_POST;
+
+        $model = new TaskModel();
+        $model->updateTask($id, $newData);
+
+        header('Location: /task/' . $id);
         exit;
     }
 
