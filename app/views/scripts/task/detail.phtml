@@ -28,7 +28,7 @@
         <h1 class="font-inter font-extrabold text-2xl px-6 pt-4"><?= htmlspecialchars($this->task['title']) ?></h1>
         <p class="font-inter text-base px-6 mt-2 mb-6"><?= nl2br(htmlspecialchars($this->task['description'])) ?></p>
         <div class="flex items-center justify-between">
-            <div class="bg-progress font-inter text-lg font-extrabold w-fit px-4 py-1 mr-6 ml-6 mb-8 rounded-lg border-black border-2"><?= htmlspecialchars($this->task['status']) ?></div>
+            <div class="<?= $this->task['color'] ?> font-inter text-lg font-extrabold w-fit px-4 py-1 mr-6 ml-6 mb-8 rounded-lg border-black border-2"><?= strtoupper(htmlspecialchars($this->task['status'])) ?></div>
             <h2 class="font-inter font-semibold text-lg mr-6 mb-8 text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
         </div>
         <div class="flex-1 flex justify-center mb-6 gap-6">
