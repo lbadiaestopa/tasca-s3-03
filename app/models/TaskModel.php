@@ -18,7 +18,7 @@ class TaskModel
             "id" => $this->generateTaskId($tasks),
             "title" => $title,
             "description" => $description,
-            "status" => 'pending',
+            "status" => TaskStatus::PENDING->value,
             "userId" => 1, //canviar per paràmetre
             "createdAt" => (new DateTime())->format('Y-m-d H:i:s'),
             "finishedAt" => null
@@ -119,5 +119,16 @@ class TaskModel
         }
 
         $this->writeTasks($tasks);
+    }
+
+    public function getStatusColor(string $status) 
+    {
+        $colors = [
+            TaskStatus::PENDING->value => 'bg-pending text-white',
+            TaskStatus::PROGRESS->value => 'bg-progress',
+            TaskStatus::COMPLETED->value => 'bg-primary',
+        ];
+
+        return $colors[$status];
     }
 }
