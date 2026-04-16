@@ -8,9 +8,7 @@ class TaskController extends Controller
     {
         $model = new TaskModel();
         $tasks = $model->getTasks();
-        foreach ($tasks as &$task) {
-            $task['color'] = $model->getStatusColor($task['status']);
-        }
+        $id = (int) $this->_getParam('id');
 
         $this->view->tasks = $tasks;
     }
@@ -35,7 +33,6 @@ class TaskController extends Controller
 
         $model = new TaskModel();
         $task = $model->getTaskById($id);
-        $task['color'] = $model->getStatusColor($task['status']);
 
         $this->view->task = $task;
     }

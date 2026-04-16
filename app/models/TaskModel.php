@@ -45,7 +45,7 @@ class TaskModel
 
         $data = json_decode(
             file_get_contents($this->filePath),
-             true
+            true
         );
 
         return $data;
@@ -78,7 +78,7 @@ class TaskModel
         return null;
     }
 
-    public function deleteTask(int $id): void 
+    public function deleteTask(int $id): void
     {
         $data = $this->readTasks();
 
@@ -92,7 +92,7 @@ class TaskModel
         $this->writeTasks($data);
     }
 
-    public function updateTask(int $id, array $newData): void 
+    public function updateTask(int $id, array $newData): void
     {
         $data = $this->readTasks();
 
@@ -107,7 +107,7 @@ class TaskModel
         $this->writeTasks($data);
     }
 
-    public function updateStatus(int $id, string $status): void 
+    public function updateStatus(int $id, string $status): void
     {
         $tasks = $this->readTasks();
 
@@ -119,16 +119,5 @@ class TaskModel
         }
 
         $this->writeTasks($tasks);
-    }
-
-    public function getStatusColor(string $status) 
-    {
-        $colors = [
-            TaskStatus::PENDING->value => 'bg-pending text-white',
-            TaskStatus::PROGRESS->value => 'bg-progress',
-            TaskStatus::COMPLETED->value => 'bg-primary',
-        ];
-
-        return $colors[$status];
     }
 }
