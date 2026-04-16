@@ -60,9 +60,17 @@ class TaskModel
         return max(array_column($tasks, 'id')) + 1;
     }
 
-    public function getTasks(): array
+    public function getTasks(?string $status = null): array
     {
-        return $this->readTasks();
+        $tasks = $this->readTasks();
+
+        if ($status === null || $status === '') {
+            return $tasks;
+        }
+        
+        $filtered = array_filter($tasks, fn($task) => $task['status'] === $status);
+
+        return array_values($filtered);
     }
 
     public function getTaskById(int $id): ?array
