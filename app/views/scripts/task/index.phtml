@@ -67,9 +67,12 @@
                 <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= $task['userId'] ?></b></p>
             </div>
             <div class="flex justify-center pb-4 mt-auto">
-                <form type="submit" name="status" value="<?= $task['status'] ?>">
-                    <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
-                    <button class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                <form action="/task/status" method="POST">
+                    <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                    <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
+                    <input type="hidden" name="redirect" value="/">
+                    
+                    <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
                         <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
                     </button>
                 </form>

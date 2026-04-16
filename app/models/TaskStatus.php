@@ -38,7 +38,7 @@ enum TaskStatus: string
         return match ($this) {
             self::PENDING => self::PROGRESS,
             self::PROGRESS => self::COMPLETED,
-            self::COMPLETED => self::PROGRESS,
+            self::COMPLETED => self::PENDING,
         };
     }
 }
