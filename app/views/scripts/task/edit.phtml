@@ -21,6 +21,7 @@
              CLOSE
          </a>
 
+         <?php $status = TaskStatus::from($this->task['status']); ?>
          <form action="/task/status" method="POST">
                  <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
 
@@ -30,7 +31,7 @@
                          name="status"
                          value="pending"
                          class="px-4 py-1 border-2 border-black rounded-full
-                <?= $this->task['status'] === TaskStatus::PENDING->value ? 'bg-pending text-white' : 'bg-white' ?> font-extrabold">
+                <?= $status === TaskStatus::PENDING ? $status->getColor() : 'bg-white' ?> font-extrabold">
                          PENDING
                      </button>
 
@@ -39,7 +40,7 @@
                          name="status"
                          value="in-progress"
                          class="px-4 py-1 border-2 border-black rounded-full
-                <?= $this->task['status'] === TaskStatus::PROGRESS->value ? 'bg-progress' : 'bg-white' ?> font-extrabold">
+                <?= $status === TaskStatus::PROGRESS ? 'bg-progress' : 'bg-white' ?> font-extrabold">
                          IN PROGRESS
                      </button>
 
@@ -48,7 +49,7 @@
                          name="status"
                          value="completed"
                          class="px-4 py-1 border-2 border-black rounded-full
-                <?= $this->task['status'] === TaskStatus::COMPLETED->value ? 'bg-primary' : 'bg-white' ?> font-extrabold">
+                <?= $status === TaskStatus::COMPLETED ? 'bg-primary' : 'bg-white' ?> font-extrabold">
                          COMPLETED
                      </button>
                  </div>
