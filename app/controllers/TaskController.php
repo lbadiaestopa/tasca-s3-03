@@ -75,11 +75,12 @@ class TaskController extends Controller
     {
         $id = (int) $_POST['id'];
         $status = $_POST['status'];
+        $redirect = $_POST['redirect'] ?? '/';
 
         $model = new TaskModel();
         $model->updateStatus($id, $status);
         
-        header('Location: /task/edit/' . $id);
+        header('Location: ' . $redirect);
         exit;
     }
 
