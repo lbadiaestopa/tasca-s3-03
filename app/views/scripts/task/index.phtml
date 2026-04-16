@@ -9,14 +9,29 @@
     </div>
 
     <div class="flex-1 flex justify-center gap-5">
-        <a href="/" class="group relative w-12 h-12 bg-white rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">ALL</span>
+        <a href="/"
+            class="group relative h-12 bg-white rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 cursor-pointer
+                <?= $this->status == '' ? 'w-20' : 'w-12 hover:w-20' ?> ? 'w-20' : 'w-12 hover:w-20' ?>">
+            <span class="absolute inset-0 flex items-center justify-center whitespace-nowrap font-inter font-bold transition-opacity duration-300
+                <?= $this->status == '' ? 'text-black opacity-100' : 'text-black opacity-0 group-hover:opacity-100' ?>">
+                ALL
+            </span>
         </a>
-        <a href="/?status=<?= TaskStatus::PENDING->value ?>" class="group relative w-12 h-12 bg-pending rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-28 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold text-white">PENDING</span>
+        <a href="/?status=<?= TaskStatus::PENDING->value ?>"
+            class="group relative h-12 bg-pending rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 cursor-pointer
+                <?= $this->status === 'pending' ? 'w-28' : 'w-12 hover:w-28' ?>">
+            <span class="absolute inset-0 flex items-center justify-center whitespace-nowrap font-inter font-bold transition-opacity duration-300
+                <?= $this->status === 'pending' ? 'text-white opacity-100' : 'text-white opacity-0 group-hover:opacity-100' ?>">
+                PENDING
+            </span>
         </a>
-        <a href="/?status=<?= TaskStatus::PROGRESS->value ?>" class="group relative w-12 h-12 bg-progress rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">IN PROGRESS</span>
+        <a href="/?status=<?= TaskStatus::PROGRESS->value ?>"
+            class="group relative h-12 bg-progress rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 cursor-pointer
+                <?= $this->status === 'in-progress' ? 'w-36' : 'w-12 hover:w-36' ?>">
+            <span class="absolute inset-0 flex items-center justify-center whitespace-nowrap font-inter font-bold transition-opacity duration-300
+                <?= $this->status === 'in-progress' ? 'text-black opacity-100' : 'text-black opacity-0 group-hover:opacity-100' ?>">
+                IN PROGRESS
+            </span>
         </a>
         <a href="/task/<?= TaskStatus::COMPLETED->value ?>" class="group relative w-12 h-12 bg-primary rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36 cursor-pointer">
             <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">COMPLETED</span>
