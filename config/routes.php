@@ -2,6 +2,7 @@
 
 $routes = array(
     '/' => 'task#index',
+    '/:status' => 'task#index',
     '/task/completed' => 'task#completed',
     '/task/create' => 'task#create',
     '/task/delete' => 'task#delete',

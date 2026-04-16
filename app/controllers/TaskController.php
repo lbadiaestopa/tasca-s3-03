@@ -6,9 +6,11 @@ class TaskController extends Controller
 {
     public function indexAction()
     {
-        $model = new TaskModel();
-        $tasks = $model->getTasks();
         $id = (int) $this->_getParam('id');
+        $status = $_GET['status'] ?? null;
+
+        $model = new TaskModel();
+        $tasks = $model->getTasks($status);
 
         $this->view->tasks = $tasks;
     }
