@@ -13,6 +13,7 @@ class TaskController extends Controller
         $tasks = $model->getTasks($status);
 
         $this->view->tasks = $tasks;
+        $this->view->status = $status;
     }
 
     public function createAction() {}
