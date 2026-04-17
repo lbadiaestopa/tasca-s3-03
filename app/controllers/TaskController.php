@@ -22,9 +22,10 @@ class TaskController extends Controller
     {
         $title = $_POST['title'];
         $description = $_POST['description'];
+        $user = $_POST['user'];
 
         $model = new TaskModel();
-        $model->addTask($title, $description, 'pending', 1);
+        $model->addTask($title, $description, $user);
 
         header('Location: /');
         exit;

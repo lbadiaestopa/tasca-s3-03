@@ -9,7 +9,7 @@ class TaskModel
         $this->filePath = ROOT_PATH . '/data/tasks.json';
     }
 
-    public function addTask(string $title, string $description, string $status, int $userId): void
+    public function addTask(string $title, string $description, string $user): void
     {
 
         $tasks = $this->readTasks();
@@ -19,7 +19,7 @@ class TaskModel
             "title" => $title,
             "description" => $description,
             "status" => TaskStatus::PENDING->value,
-            "userId" => 1, //canviar per paràmetre
+            "user" => $user,
             "createdAt" => (new DateTime())->format('Y-m-d H:i:s'),
             "finishedAt" => null
         ];

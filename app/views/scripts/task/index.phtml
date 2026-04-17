@@ -54,7 +54,7 @@
             <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
         </div>
         <div class="flex items-center px-4 pb-4">
-            <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= $task['userId'] ?></b></p>
+            <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= htmlspecialchars($task['createdAt']) ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b></p>
         </div>
         <div class="flex justify-center pb-4 mt-auto">
             <form action="/task/status" method="POST">
