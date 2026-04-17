@@ -24,7 +24,7 @@
          <?php $status = TaskStatus::from($this->task['status']); ?>
          <form action="/task/status" method="POST">
                  <input type="hidden" name="id" value="<?= $this->task['id'] ?>">
-                 <input type="hidden" name="redirect" value="/task/edit/<?= $task['id'] ?>">
+                 <input type="hidden" name="redirect" value="/task/edit/<?= $this->task['id'] ?>">
 
                  <div class="flex gap-2 mb-4">
                      <button
