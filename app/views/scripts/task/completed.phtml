@@ -1,64 +1,59 @@
-<header class="px-20 py-5 mb-5 flex items-center bg-background-secondary sticky top-0 z-10 border-b-2 border-black">
-    <div class="flex-1 flex justify-start">
-        <button class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 cursor-pointer flex items-center justify-center gap-3">
+<header class="px-20 py-5 mb-5 grid grid-cols-3 items-center bg-background-secondary sticky top-0 z-10 border-b-2 border-black">
+    <div class="justify-self-start">
+        <a href="/task/create" class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 cursor-pointer flex items-center justify-center gap-3">
             <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
             </svg>
             NEW TASK
-        </button>
+        </a>
     </div>
 
-    <div class="flex-1 flex justify-center gap-5">
+    <div class="justify-self-center flex gap-5">
         <a href="/" class="group relative w-12 h-12 bg-white rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20 cursor-pointer">
             <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">ALL</span>
-            </a>
+        </a>
         <a href="/?status=<?= TaskStatus::PENDING->value ?>" class="group relative w-12 h-12 bg-pending rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-28 cursor-pointer">
             <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold text-white">PENDING</span>
-            </a>
+        </a>
         <a href="/?status=<?= TaskStatus::PROGRESS->value ?>" class="group relative w-12 h-12 bg-progress rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36 cursor-pointer">
             <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">IN PROGRESS</span>
-            </a>
+        </a>
         <a class="relative w-36 h-12 bg-primary rounded-full border-black border-2 flex items-center justify-center cursor-pointer">
             <span class="flex items-center justify-center font-inter font-bold">COMPLETED</span>
-            </a>
+        </a>
     </div>
-
-    <div class="flex-1 flex justify-end">
-        <button class="bg-primary font-inter text-4xl font-extrabold min-w-20 min-h-20 w-20 h-20 rounded-xl border-black border-2 cursor-pointer transition-transform duration-300 hover:rotate-12">
-            L
-        </button>
-    </div>
+    <div></div>
 </header>
 
 <main class="px-12 grid grid-cols-4 gap-4 bg-background-secondary">
-        <?php foreach ($this->tasks as $task) : ?>
-            <?php $status = TaskStatus::from($task['status']); ?>
-            <div class="bg-white rounded-lg border-black border-2 flex flex-col">
-                <a href=/task/<?= $task['id'] ?>>
-                    <div class="flex justify-between items-center">
-                        <h1 class="font-inter font-extrabold text-2xl px-8 py-4 underline hover:text-gray-600"><?= htmlspecialchars($task['title']) ?></h1>
-                </a>
-                <div class="<?= $status->getColor() ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
-            </div>
-            <div class="overflow-hidden px-8 pb-4 flex-1">
-                <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
-            </div>
-            <div class="flex items-center px-4 pb-4">
-                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= $task['userId'] ?></b></p>
-            </div>
-            <div class="flex justify-center pb-4 mt-auto">
-                <form action="/task/status" method="POST">
-                    <input type="hidden" name="id" value="<?= $task['id'] ?>">
-                    <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
-                    <input type="hidden" name="redirect" value="/">
+    <?php foreach ($this->tasks as $task) : ?>
+        <?php $status = TaskStatus::from($task['status']); ?>
+        <div class="bg-white rounded-lg border-black border-2 flex flex-col">
+            <a href=/task/<?= $task['id'] ?>>
+                <div class="flex justify-between items-center">
+                    <h1 class="font-inter font-extrabold text-2xl px-8 py-4 underline hover:text-gray-600"><?= htmlspecialchars($task['title']) ?></h1>
+            </a>
+            <div class="<?= $status->getColor() ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
+        </div>
+        <div class="overflow-hidden px-8 pb-4 flex-1">
+            <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
+        </div>
+        <div class="flex items-center px-4 pb-4">
+            <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= $task['userId'] ?></b></p>
+        </div>
+        <div class="flex justify-center pb-4 mt-auto">
+            <form action="/task/status" method="POST">
+                <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
+                <input type="hidden" name="redirect" value="/">
 
-                    <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
-                        <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
-                    </button>
-                </form>
-            </div>
-            </div>
-        <?php endforeach; ?>
+                <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
+                </button>
+            </form>
+        </div>
+        </div>
+    <?php endforeach; ?>
 </main>
 
 <footer class="px-20 py-11 bg-background-secondary"></footer>
