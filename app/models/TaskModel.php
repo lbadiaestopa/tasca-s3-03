@@ -65,11 +65,11 @@ class TaskModel
         $tasks = $this->readTasks();
 
         if ($status === null || $status === '') {
-            return $tasks;
+            $filtered = array_filter($tasks, fn($task) => $task['status'] !== 'completed');
+            return array_values($filtered);
         }
-        
-        $filtered = array_filter($tasks, fn($task) => $task['status'] === $status);
 
+        $filtered = array_filter($tasks, fn($task) => $task['status'] === $status);
         return array_values($filtered);
     }
 
