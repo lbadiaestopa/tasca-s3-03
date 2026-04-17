@@ -66,11 +66,13 @@ class TaskModel
 
         if ($status === null || $status === '') {
             $filtered = array_filter($tasks, fn($task) => $task['status'] !== 'completed');
-            return array_values($filtered);
+            $reindexed = array_values($filtered);
+            return array_reverse($reindexed);
         }
 
         $filtered = array_filter($tasks, fn($task) => $task['status'] === $status);
-        return array_values($filtered);
+        $reindexed = array_values($filtered);
+        return array_reverse($reindexed);
     }
 
     public function getTaskById(int $id): ?array
