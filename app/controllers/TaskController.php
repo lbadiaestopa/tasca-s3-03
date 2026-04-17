@@ -13,7 +13,7 @@ class TaskController extends Controller
         $tasks = $model->getTasks($status);
 
         $this->view->tasks = $tasks;
-        $this->view->status = $status;
+        $this->view->status = $status; // Em sembla que es pot esborrar
     }
 
     public function createAction() {}
@@ -87,5 +87,15 @@ class TaskController extends Controller
         exit;
     }
 
-    public function completedAction() {}
+    public function completedAction() 
+    {
+        $id = (int) $this->_getParam('id');
+        $status = $_GET['status'] ?? null;
+
+        $model = new TaskModel();
+        $tasks = $model->getTasks(TaskStatus::COMPLETED->value);
+
+        $this->view->tasks = $tasks;
+        $this->view->status = $status; // Em sembla que es pot esborrar
+    }
 }
