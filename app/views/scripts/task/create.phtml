@@ -14,14 +14,20 @@
         <form action="/task/store" method="POST" method="POST">
             <h1 class="font-inter font-extrabold text-2xl px-8 pt-6 pb-2">TITLE</h1>
             <input type="text" name="title"
-                value="<?php echo @$_POST['title'] ?>"
+                value="<?= @$_POST['title'] ?>"
                 placeholder="This task needs a title..."
                 class="rounded-lg border-black border-2 h-10 px-4 w-full cursor-text">
 
             <h1 class="font-inter font-extrabold text-2xl px-8 pt-6 pb-2">DESCRIPTION</h1>
             <textarea name="description"
-                placeholder="This task needs a description..."
-                class="rounded-lg border-black border-2 px-4 py-2 mb-4 w-full h-32 cursor-text"><?php echo @$_POST['description'] ?></textarea>
+                placeholder="Also a description!"
+                class="rounded-lg border-black border-2 px-4 py-2 w-full h-32 cursor-text"><?= @$_POST['description'] ?></textarea>
+
+            <h1 class="font-inter font-extrabold text-2xl px-8 pt-4 pb-2">CREATED BY</h1>
+            <input type="text" name="user"
+                value="<?= @$_POST['user'] ?>"
+                placeholder="Who is adding this?"
+                class="rounded-lg border-black border-2 h-10 px-4 mb-6 w-full cursor-text">
 
             <div class="flex-1 flex justify-center mb-6">
                 <button
