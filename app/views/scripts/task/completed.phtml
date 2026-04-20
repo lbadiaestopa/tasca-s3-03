@@ -1,66 +1,88 @@
-<header class="px-20 py-5 mb-5 grid grid-cols-3 items-center bg-background-secondary sticky top-0 z-10 border-b-2 border-black">
+<header class="sticky top-0 z-10 grid grid-cols-3 items-center px-20 py-5 mb-5 bg-background-secondary border-2 border-black border-x-0 border-t-0">
     <div class="justify-self-start">
-        <a href="/task/create" class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 cursor-pointer flex items-center justify-center gap-3">
-            <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <a href="/task/create" class="flex items-center justify-center gap-3 px-6 py-4 bg-primary border-2 border-black rounded-full cursor-pointer font-inter text-4xl font-extrabold group">
+            <svg class="inline-block w-6 h-6 transition-transform duration-300 group-hover:rotate-90" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
             </svg>
             NEW TASK
         </a>
     </div>
 
-    <div class="justify-self-center flex gap-5">
-        <a href="/" class="group relative w-12 h-12 bg-white rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-20 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">ALL</span>
+    <div class="flex gap-5 justify-self-center">
+        <a href="/" class="relative flex items-center justify-center w-12 h-12 overflow-hidden bg-white border-2 border-black rounded-full cursor-pointer transition-all duration-300 group hover:w-20">
+            <span class="absolute inset-0 flex items-center justify-center font-inter font-bold opacity-0 transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100">
+                ALL
+            </span>
         </a>
-        <a href="/?status=<?= TaskStatus::PENDING->value ?>" class="group relative w-12 h-12 bg-pending rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-28 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold text-white">PENDING</span>
+
+        <a href="/?status=<?= TaskStatus::PENDING->value ?>" class="relative flex items-center justify-center w-12 h-12 overflow-hidden bg-pending border-2 border-black rounded-full cursor-pointer transition-all duration-300 group hover:w-28">
+            <span class="absolute inset-0 flex items-center justify-center font-inter font-bold text-white opacity-0 transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100">
+                PENDING
+            </span>
         </a>
-        <a href="/?status=<?= TaskStatus::PROGRESS->value ?>" class="group relative w-12 h-12 bg-progress rounded-full border-black border-2 flex items-center justify-center overflow-hidden transition-all duration-300 hover:w-36 cursor-pointer">
-            <span class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-inter font-bold">IN PROGRESS</span>
+
+        <a href="/?status=<?= TaskStatus::PROGRESS->value ?>" class="relative flex items-center justify-center w-12 h-12 overflow-hidden bg-progress border-2 border-black rounded-full cursor-pointer transition-all duration-300 group hover:w-36">
+            <span class="absolute inset-0 flex items-center justify-center font-inter font-bold opacity-0 transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100">
+                IN PROGRESS
+            </span>
         </a>
-        <a class="relative w-36 h-12 bg-primary rounded-full border-black border-2 flex items-center justify-center cursor-pointer">
-            <span class="flex items-center justify-center font-inter font-bold">COMPLETED</span>
+
+        <a class="relative flex items-center justify-center w-36 h-12 bg-primary border-2 border-black rounded-full cursor-pointer">
+            <span class="flex items-center justify-center font-inter font-bold">
+                COMPLETED
+            </span>
         </a>
     </div>
+
     <div></div>
 </header>
 
-<main class="px-12 grid grid-cols-4 gap-4 bg-background-secondary">
+<main class="grid grid-cols-4 gap-4 px-12 bg-background-secondary">
     <?php foreach ($this->tasks as $task) : ?>
         <?php $status = TaskStatus::from($task['status']); ?>
-        <div class="bg-white rounded-lg border-black border-2 flex flex-col">
+        <div class="flex flex-col bg-white border-2 border-black rounded-lg">
             <a href=/task/<?= $task['id'] ?>>
-                <div class="flex justify-between items-center">
-                    <h1 class="font-inter font-extrabold text-2xl px-8 py-4 underline hover:text-gray-600 truncate"><?= htmlspecialchars($task['title']) ?></h1>
-                    <div class="<?= $status->getColor() ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
+                <div class="flex items-center justify-between">
+                    <h1 class="px-8 py-4 font-inter text-2xl font-extrabold underline truncate hover:text-gray-600">
+                        <?= htmlspecialchars($task['title']) ?>
+                    </h1>
+
+                    <div class="flex items-center justify-center w-8 h-8 mr-4 border-2 border-black rounded-xl shrink-0 <?= $status->getColor() ?>"></div>
                 </div>
             </a>
-            <div class="overflow-hidden px-8 pb-4 flex-1">
-                <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
+
+            <div class="flex-1 px-8 pb-4 overflow-hidden">
+                <p class="font-inter text-base line-clamp-6">
+                    <?= nl2br(htmlspecialchars($task['description'])); ?>
+                </p>
             </div>
+
             <div class="flex items-center px-4 pb-4">
-                <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b></p>
+                <p class="ml-auto font-inter text-sm text-text-secondary">
+                    Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b>
+                </p>
             </div>
+
             <div class="flex justify-center pb-4 mt-auto">
                 <form action="/task/delete" method="POST">
                     <input type="hidden" name="id" value="<?= $task['id'] ?>">
+
                     <input type="hidden" name="redirect" value="completed">
-                    <button type="submit"
-                        class="bg-white rounded-full mr-4 border-black border-2 hover:bg-pending hover:text-white transition-colors duration-200 cursor-pointer">
-                        <p class="font-inter font-extrabold px-3 py-1">DELETE</p>
+
+                    <button type="submit" class="px-3 py-1 mr-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter font-extrabold transition-colors duration-200 hover:bg-pending hover:text-white">
+                        DELETE
                     </button>
                 </form>
 
                 <form action="/task/status" method="POST">
                     <input type="hidden" name="id" value="<?= $task['id'] ?>">
+
                     <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
+
                     <input type="hidden" name="redirect" value="completed">
 
-                    <button type="submit"
-                        class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
-                        <p class="font-inter font-extrabold px-3 py-1">
-                            <?= $status->getButtonLabel() ?>
-                        </p>
+                    <button type="submit" class="px-3 py-1 bg-white border-2 border-black rounded-full cursor-pointer font-inter font-extrabold transition-colors duration-200 hover:bg-primary">
+                        <?= $status->getButtonLabel() ?>
                     </button>
                 </form>
             </div>
