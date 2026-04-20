@@ -1,64 +1,60 @@
 <?php
 
-use PHPUnit\Event\Code\NoTestCaseObjectOnCallStackException;
-
 class TaskController extends Controller
 {
+
+    private TaskModel $taskModel;
+
+    public function __construct()
+    {
+        $this->taskModel = new TaskModel();
+    }
+
     public function indexAction()
     {
-        $id = (int) $this->_getParam('id');
-        $status = $_GET['status'] ?? null;
+        $status = $this->_getParam('status');
 
-        $model = new TaskModel();
-        $tasks = $model->getTasks($status);
+        $tasks = $this->taskModel->getTasks($status);
 
         $this->view->tasks = $tasks;
-        $this->view->status = $status; // Em sembla que es pot esborrar
     }
 
     public function createAction() {}
 
     public function storeAction()
     {
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $user = $_POST['user'];
+        $title = $this->_getParam('title');
+        $description = $this->_getParam('description');
+        $user = $this->_getParam('user');
 
-        $model = new TaskModel();
-        $model->addTask($title, $description, $user);
+        $this->taskModel->addTask($title, $description, $user);
 
         header('Location: /');
         exit;
     }
 
-    public function detailAction()
+    private function loadTask(): array
     {
         $id = (int) $this->_getParam('id');
-
-        $model = new TaskModel();
-        $task = $model->getTaskById($id);
-
-        $this->view->task = $task;
+        return $this->taskModel->getTaskById($id);
     }
 
-    public function editAction() 
+    public function detailAction()
     {
-        $id = (int) $this->_getParam('id');
+        $this->view->task = $this->loadTask();
+    }
 
-        $model = new TaskModel();
-        $task = $model->getTaskById($id);
-
-
-        $this->view->task = $task;
+    public function editAction()
+    {
+        $this->view->task = $this->loadTask();
     }
 
     public function deleteAction()
     {
         $id = (int) $this->_getParam('id');
-        $redirect = $_POST['redirect'] ?? '/';
+        $redirect = $this->_getParam('redirect');
 
-        $model = new TaskModel();
-        $model->deleteTask($id);
+        $this->taskModel->deleteTask($id);
 
         header('Location: ' . $redirect);
         exit;
@@ -69,8 +65,7 @@ class TaskController extends Controller
         $id = (int) $this->_getParam('id');
         $newData = $_POST;
 
-        $model = new TaskModel();
-        $model->updateTask($id, $newData);
+        $this->taskModel->updateTask($id, $newData);
 
         header('Location: /task/' . $id);
         exit;
@@ -78,26 +73,20 @@ class TaskController extends Controller
 
     public function statusAction()
     {
-        $id = (int) $_POST['id'];
-        $status = $_POST['status'];
-        $redirect = $_POST['redirect'] ?? '/';
+        $id = (int) $this->_getParam('id');
+        $status = $this->_getParam('status');
+        $redirect = $this->_getParam('redirect');
 
-        $model = new TaskModel();
-        $model->updateStatus($id, $status);
-        
+        $this->taskModel->updateStatus($id, $status);
+
         header('Location: ' . $redirect);
         exit;
     }
 
-    public function completedAction() 
+    public function completedAction()
     {
-        $id = (int) $this->_getParam('id');
-        $status = $_GET['status'] ?? null;
-
-        $model = new TaskModel();
-        $tasks = $model->getTasks(TaskStatus::COMPLETED->value);
+        $tasks = $this->taskModel->getTasks(TaskStatus::COMPLETED->value);
 
         $this->view->tasks = $tasks;
-        $this->view->status = $status; // Em sembla que es pot esborrar
     }
 }
