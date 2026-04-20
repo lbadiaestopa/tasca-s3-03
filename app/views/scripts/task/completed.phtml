@@ -48,6 +48,7 @@
                 <input type="hidden" name="redirect" value="/">
 
                 <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <input type="hidden" name="redirect" value="completed">
                     <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
                 </button>
             </form>
