@@ -46,27 +46,27 @@
         <div class="bg-white rounded-lg border-black border-2 flex flex-col">
             <a href=/task/<?= $task['id'] ?>>
                 <div class="flex justify-between items-center">
-                    <h1 class="font-inter font-extrabold text-2xl px-8 py-4 underline hover:text-gray-600"><?= htmlspecialchars($task['title']) ?></h1>
+                    <h1 class="font-inter font-extrabold text-2xl px-8 py-4 underline hover:text-gray-600 truncate"><?= htmlspecialchars($task['title']) ?></h1>
+                    <div class="<?= $status->getColor() ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
+                </div>
             </a>
-            <div class="<?= $status->getColor() ?> rounded-xl border-black border-2 w-8 h-8 flex items-center justify-center mr-4 shrink-0"></div>
-        </div>
-        <div class="overflow-hidden px-8 pb-4 flex-1">
-            <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
-        </div>
-        <div class="flex items-center px-4 pb-4">
-            <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= htmlspecialchars($task['createdAt']) ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b></p>
-        </div>
-        <div class="flex justify-center pb-4 mt-auto">
-            <form action="/task/status" method="POST">
-                <input type="hidden" name="id" value="<?= $task['id'] ?>">
-                <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
-                <input type="hidden" name="redirect" value="/">
+            <div class="overflow-hidden px-8 pb-4 flex-1">
+                <p class="font-inter text-base line-clamp-6"><?= nl2br(htmlspecialchars($task['description'])); ?></p>
+            </div>
+            <div class="flex items-center px-8 pb-4">
+                <p class="font-inter text-text-secondary text-sm">Created at <b class="text-black"><?= htmlspecialchars($task['createdAt']) ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b></p>
+            </div>
+            <div class="flex justify-center pb-4 mt-auto">
+                <form action="/task/status" method="POST">
+                    <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                    <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
+                    <input type="hidden" name="redirect" value="/">
 
-                <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
-                    <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
-                </button>
-            </form>
-        </div>
+                    <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                        <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
+                    </button>
+                </form>
+            </div>
         </div>
     <?php endforeach; ?>
 </main>
