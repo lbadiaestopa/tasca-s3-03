@@ -55,11 +55,12 @@ class TaskController extends Controller
     public function deleteAction()
     {
         $id = (int) $this->_getParam('id');
+        $redirect = $_POST['redirect'] ?? '/';
 
         $model = new TaskModel();
         $model->deleteTask($id);
 
-        header('Location: /');
+        header('Location: ' . $redirect);
         exit;
     }
 
