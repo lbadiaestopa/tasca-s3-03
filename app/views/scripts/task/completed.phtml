@@ -42,14 +42,25 @@
             <p class="font-inter text-text-secondary text-sm ml-auto">Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b></p>
         </div>
         <div class="flex justify-center pb-4 mt-auto">
+            <form action="/task/delete" method="POST">
+                <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                <input type="hidden" name="redirect" value="completed">
+                <button type="submit"
+                    class="bg-white rounded-full mr-4 border-black border-2 hover:bg-pending hover:text-white transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">DELETE</p>
+                </button>
+            </form>
+
             <form action="/task/status" method="POST">
                 <input type="hidden" name="id" value="<?= $task['id'] ?>">
                 <input type="hidden" name="status" value="<?= $status->getNextStatus()->value ?>">
-                <input type="hidden" name="redirect" value="/">
+                <input type="hidden" name="redirect" value="completed">
 
-                <button type="submit" class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
-                    <input type="hidden" name="redirect" value="completed">
-                    <p class="font-inter font-extrabold px-3 py-1"><?= $status->getButtonLabel() ?></p>
+                <button type="submit"
+                    class="bg-white rounded-full border-black border-2 hover:bg-primary transition-colors duration-200 cursor-pointer">
+                    <p class="font-inter font-extrabold px-3 py-1">
+                        <?= $status->getButtonLabel() ?>
+                    </p>
                 </button>
             </form>
         </div>
