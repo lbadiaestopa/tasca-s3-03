@@ -1,46 +1,37 @@
-<header class="bg-background-secondary py-16"></header>
+<header class="py-16 bg-background-secondary"></header>
 
-<main class="bg-background-secondary px-12 flex-1 flex items-center justify-center">
-    <div class="mx-auto w-1/2 min-w-[36rem] px-6 rounded-lg border-2 border-black bg-background">
+<main class="flex items-center justify-center flex-1 px-12 bg-background-secondary">
+    <div class="w-1/2 min-w-[36rem] mx-auto px-6 bg-background border-2 border-black rounded-lg">
         <div class="flex justify-end">
-            <a href="/" class="group bg-white font-inter text-lg font-extrabold px-4 py-1 mt-4 rounded-full border-black border-2 inline-flex items-center gap-1 cursor-pointer">
-                <svg class="w-4 h-4 inline-block transition-transform duration-200 rotate-45 group-hover:rotate-[135deg]"
-                    viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <a href="/" class="inline-flex items-center gap-1 px-4 py-1 mt-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-lg font-extrabold group">
+                <svg class="w-4 h-4 rotate-45 transition-transform duration-200 group-hover:rotate-[135deg]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
                 </svg>
                 CLOSE
             </a>
         </div>
-        <form action="/task/store" method="POST" method="POST">
-            <h1 class="font-inter font-extrabold text-2xl px-8 pt-6 pb-2">TITLE</h1>
-            <input type="text" name="title"
-                value="<?= @$_POST['title'] ?>" required
-                placeholder="This task needs a title..."
-                class="rounded-lg border-black border-2 h-10 px-4 w-full cursor-text">
 
-            <h1 class="font-inter font-extrabold text-2xl px-8 pt-6 pb-2">DESCRIPTION</h1>
-            <textarea name="description"
-                placeholder="Also a description!" required
-                class="rounded-lg border-black border-2 px-4 py-2 w-full h-32 cursor-text"><?= @$_POST['description'] ?></textarea>
+        <form action="/task/store" method="POST">
+            <h1 class="px-8 pt-6 pb-2 font-inter text-2xl font-extrabold">TITLE</h1>
 
-            <h1 class="font-inter font-extrabold text-2xl px-8 pt-4 pb-2">CREATED BY</h1>
-            <input type="text" name="user"
-                value="<?= @$_POST['user'] ?>" required
-                placeholder="Who is adding this?"
-                class="rounded-lg border-black border-2 h-10 px-4 mb-6 w-full cursor-text">
-
-            <div class="flex-1 flex justify-center mb-6">
-                <button
-                    type="submit"
-                    class="group bg-primary font-inter text-4xl font-extrabold py-4 px-6 rounded-full border-black border-2 cursor-pointer flex items-center justify-center gap-3">
-                    <svg class="w-6 h-6 inline-block transition-transform duration-300 group-hover:rotate-90"
-                        viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <input type="text" name="title" value="<?= @$_POST['title'] ?>" required placeholder="This task needs a title..." class="w-full h-10 px-4 border-2 border-black rounded-lg cursor-text">
+            
+            <h1 class="px-8 pt-6 pb-2 font-inter text-2xl font-extrabold">DESCRIPTION</h1>
+            
+            <textarea name="description" required placeholder="Also a description!" class="w-full h-32 px-4 py-2 border-2 border-black rounded-lg cursor-text"><?= @$_POST['description'] ?></textarea>
+            
+            <h1 class="px-8 pt-4 pb-2 font-inter text-2xl font-extrabold">CREATED BY</h1>
+            
+            <input type="text" name="user" value="<?= @$_POST['user'] ?>" required placeholder="Who is adding this?" class="w-full h-10 px-4 mb-6 border-2 border-black rounded-lg cursor-text">
+            
+            <div class="flex justify-center flex-1 mb-6">
+                <button type="submit" class="flex items-center justify-center gap-3 px-6 py-4 bg-primary border-2 border-black rounded-full cursor-pointer font-inter text-4xl font-extrabold group">
+                    <svg class="inline-block w-6 h-6 transition-transform duration-300 group-hover:rotate-90" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
                     </svg>
                     ADD
                 </button>
             </div>
         </form>
-    </div>
     </div>
 </main>
