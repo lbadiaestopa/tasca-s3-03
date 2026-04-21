@@ -37,10 +37,10 @@ class TaskModel
         );
     }
 
-    private function readTasks(): ?array
+    private function readTasks(): array
     {
         if (!file_exists($this->filePath)) {
-            return null;
+            return [];
         }
 
         $data = json_decode(
@@ -65,69 +65,73 @@ class TaskModel
         $tasks = $this->readTasks();
 
         if ($status === null || $status === '') {
-            $filtered = array_filter($tasks, fn($task) => $task['status'] !== 'completed');
-            $reindexed = array_values($filtered);
-            return array_reverse($reindexed);
+            $filtered = array_filter(
+                $tasks,
+                fn($task) =>
+                $task['status'] !== TaskStatus::COMPLETED->value
+            );
+        } else {
+            $filtered = array_filter(
+                $tasks,
+                fn($task) =>
+                $task['status'] === $status
+            );
         }
 
-        $filtered = array_filter($tasks, fn($task) => $task['status'] === $status);
-        $reindexed = array_values($filtered);
-        return array_reverse($reindexed);
+        return array_reverse(array_values($filtered));
     }
 
     public function getTaskById(int $id): ?array
     {
-        $data = $this->readTasks();
+        $tasks = $this->readTasks();
+        $index = $this->findTaskIndexById($tasks, $id);
 
-        foreach ($data as $task) {
-            if (isset($task['id']) && (int)$task['id'] === $id) {
-                return $task;
-            }
-        }
-
-        return null;
+        return $index !== null ? $tasks[$index] : null;
     }
 
     public function deleteTask(int $id): void
     {
-        $data = $this->readTasks();
+        $tasks = $this->readTasks();
+        $index = $this->findTaskIndexById($tasks, $id);
 
-        foreach ($data as $key => $task) {
-            if (isset($task['id']) && (int)$task['id'] === $id) {
-                unset($data[$key]);
-            }
+        if ($index !== null) {
+            unset($tasks[$index]);
+            $tasks = array_values($tasks);
+            $this->writeTasks($tasks);
         }
-
-        $data = array_values($data);
-        $this->writeTasks($data);
     }
 
     public function updateTask(int $id, array $newData): void
     {
-        $data = $this->readTasks();
+        $tasks = $this->readTasks();
+        $index = $this->findTaskIndexById($tasks, $id);
 
-        foreach ($data as $key => $task) {
-            if (isset($task['id']) && (int)$task['id'] === $id) {
-                $data[$key]['title'] = $newData['title'];
-                $data[$key]['description'] = $newData['description'];
-                break;
-            }
+        if ($index !== null) {
+            $tasks[$index]['title'] = $newData['title'];
+            $tasks[$index]['description'] = $newData['description'];
+            $this->writeTasks($tasks);
         }
-
-        $this->writeTasks($data);
     }
 
     public function updateStatus(int $id, string $status): void
     {
         $tasks = $this->readTasks();
+        $index = $this->findTaskIndexById($tasks, $id);
 
+        if ($index !== null) {
+            $tasks[$index]['status'] = $status;
+            $this->writeTasks($tasks);
+        }
+    }
+
+    private function findTaskIndexById(array $tasks, int $id): ?int
+    {
         foreach ($tasks as $key => $task) {
             if (isset($task['id']) && (int)$task['id'] === $id) {
-                $tasks[$key]['status'] = $status;
-                break;
+                return $key;
             }
         }
 
-        $this->writeTasks($tasks);
+        return null;
     }
 }
