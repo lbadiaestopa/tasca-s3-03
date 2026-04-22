@@ -117,11 +117,21 @@ class TaskModel
     {
         $tasks = $this->readTasks();
         $index = $this->findTaskIndexById($tasks, $id);
+        $oldStatus = $tasks[$index]['status'];
 
         if ($index !== null) {
             $tasks[$index]['status'] = $status;
-            $this->writeTasks($tasks);
         }
+
+        if ($oldStatus !== TaskStatus::COMPLETED->value && $status === TaskStatus::COMPLETED->value) {
+            $tasks[$index]['finishedAt'] = (new DateTime())->format('Y-m-d H:i:s');
+        }
+
+        if ($oldStatus === TaskStatus::COMPLETED->value && $status !== TaskStatus::COMPLETED->value) {
+            $tasks[$index]['finishedAt'] = null;
+        }
+
+        $this->writeTasks($tasks);
     }
 
     private function findTaskIndexById(array $tasks, int $id): ?int
