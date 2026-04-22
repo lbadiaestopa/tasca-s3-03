@@ -62,6 +62,11 @@
                     Created at <b class="text-black"><?= $task['createdAt'] ?></b> by <b class="text-black"><?= htmlspecialchars($task['user']) ?></b>
                 </p>
             </div>
+            <div class="flex items-center px-4 pb-4">
+                <p class="ml-auto font-inter text-sm text-text-secondary">
+                    Finished at <b class="text-black"><?= $task['finishedAt'] ?></b>
+                </p>
+            </div>
 
             <div class="flex justify-center pb-4 mt-auto">
                 <form action="/task/delete" method="POST">
