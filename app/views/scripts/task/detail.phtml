@@ -1,7 +1,7 @@
 <header class="py-16 bg-background-secondary"></header>
 
 <main class="px-12 bg-background-secondary">
-    <div class="w-1/2 min-w-[36rem] mx-auto px-6 bg-background border-2 border-black rounded-lg">
+    <div class="w-1/2 min-w-[24rem] md:min-w-[36rem] justify-self-center px-6 bg-background border-2 border-black rounded-lg">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-center w-10 h-10 mt-6 mb-2 bg-primary border-2 border-black rounded-lg">
                 <h1 class="font-inter text-lg font-extrabold"><?= strtoupper($this->task['user'][0] ?? '?') ?></h1>
@@ -24,7 +24,7 @@
         <div class="flex items-center justify-between">
             <div class="w-fit px-4 py-1 mr-6 mb-8 font-inter text-lg font-extrabold border-2 border-black rounded-lg <?= $status->getColor() ?>"><?= $status->getLabel() ?></div>
 
-            <h2 class="mb-8 mr-4 font-inter text-lg font-semibold text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
+            <h2 class="mb-8 mr-4 font-inter text-base lg:text-lg font-semibold text-text-secondary">Created at <b class="text-black"><?= htmlspecialchars($this->task['createdAt']) ?></b></h2>
         </div>
 
         <div class="flex flex-1 justify-center gap-6 mb-6">
@@ -33,12 +33,12 @@
 
                 <input type="hidden" name="redirect" value="/">
 
-                <button class="px-6 py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-4xl font-extrabold hover:bg-pending hover:text-white">
+                <button class="px-4 py-2 md:px-6 md:py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter xl:text-4xl text-2xl font-extrabold hover:bg-pending hover:text-white">
                     DELETE
                 </button>
             </form>
             
-            <a href="/task/edit?id=<?= $this->task['id'] ?>" class="px-6 py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-4xl font-extrabold hover:bg-primary">
+            <a href="/task/edit?id=<?= $this->task['id'] ?>" class="px-4 py-2 md:px-6 md:py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter xl:text-4xl text-2xl font-extrabold hover:bg-primary">
                 EDIT
             </a>
         </div>

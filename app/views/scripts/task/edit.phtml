@@ -1,8 +1,8 @@
 <header class="py-16 bg-background-secondary"></header>
 
 <main class="px-12 bg-background-secondary">
-    <div class="flex flex-col w-1/2 min-w-[36rem] mx-auto px-6 bg-background border-2 border-black rounded-lg">
-        <a href="/task/<?= $this->task['id'] ?>" class="inline-flex items-center self-end gap-1 px-4 py-1 mt-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-lg font-extrabold group">
+    <div class="flex flex-col w-1/2 min-w-[24rem] md:min-w-[36rem] justify-self-center px-6 bg-background border-2 border-black rounded-lg">
+        <a href="/task/<?= $this->task['id'] ?>" class="inline-flex items-center self-end gap-1 px-4 py-1 mt-4 mb-4 md:mb-0 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-lg font-extrabold group">
             <svg class="w-4 h-4 rotate-45 transition-transform duration-200 group-hover:rotate-[135deg]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 1H6V6L1 6V10H6V15H10V10H15V6L10 6V1Z" />
             </svg>
@@ -16,8 +16,8 @@
 
             <input type="hidden" name="redirect" value="/task/edit/<?= $this->task['id'] ?>">
 
-            <div class="flex gap-2 mb-4">
-                <button type="submit" name="status" value="pending" class="px-4 py-1 font-extrabold border-2 border-black rounded-full <?= $status === TaskStatus::PENDING ? $status->getColor() : 'bg-white' ?>">
+            <div class="md:flex gap-2 mb-2">
+                <button type="submit" name="status" value="pending" class="px-4 py-1 mb-4 md:mb-0 font-extrabold border-2 border-black rounded-full <?= $status === TaskStatus::PENDING ? $status->getColor() : 'bg-white' ?>">
                     PENDING
                 </button>
 
@@ -45,7 +45,7 @@
             <textarea name="description" class="w-full h-32 px-4 py-2 mb-4 border-2 border-black rounded-lg cursor-text"><?= htmlspecialchars($this->task['description']) ?></textarea>
             
             <div class="flex justify-center flex-1 mb-6">
-                <button type="submit" class="px-6 py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter text-4xl font-extrabold hover:bg-primary">
+                <button type="submit" class="px-4 py-2 md:px-6 md:py-4 bg-white border-2 border-black rounded-full cursor-pointer font-inter md:text-4xl text-2xl font-extrabold hover:bg-primary">
                     EDIT
                 </button>
             </div>
