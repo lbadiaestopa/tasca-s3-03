@@ -1,1 +1,65 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Fix the Coffee Machine Before It Becomes Sentient",
+        "description": "The office coffee machine is making suspicious noises and blinking like it knows things. Investigate, repair, and ensure it doesn\u2019t develop opinions.",
+        "status": "pending",
+        "user": "Alex",
+        "createdAt": "2026-04-22 12:40:14",
+        "finishedAt": null
+    },
+    {
+        "id": 2,
+        "title": "Rename Variables That Were Clearly Named at 3AM",
+        "description": "Refactor poorly named variables like $thing, $stuff, and $idk into something meaningful before future-you files a complaint.",
+        "status": "pending",
+        "user": "Jordan",
+        "createdAt": "2026-04-22 12:40:42",
+        "finishedAt": null
+    },
+    {
+        "id": 3,
+        "title": "Convince the Bug It\u2019s Actually a Feature",
+        "description": "There\u2019s a UI glitch that looks almost intentional. Either fix it or write documentation persuasive enough to pass it off as design.",
+        "status": "pending",
+        "user": "Casey",
+        "createdAt": "2026-04-22 12:41:15",
+        "finishedAt": null
+    },
+    {
+        "id": 4,
+        "title": "Reduce Console Logs from \u201cNovel\u201d to \u201cHaiku\u201d",
+        "description": "The console output currently reads like a full-length novel. Trim it down to only what\u2019s necessary without losing critical debugging info.",
+        "status": "pending",
+        "user": "Taylor",
+        "createdAt": "2026-04-22 12:41:36",
+        "finishedAt": null
+    },
+    {
+        "id": 5,
+        "title": "Investigate Why the Server Cries at Night",
+        "description": "Logs show unusual spikes in activity at 3:00 AM. Determine if it\u2019s a scheduled job, a rogue script, or something\u2026 emotional.",
+        "status": "pending",
+        "user": "Morgan",
+        "createdAt": "2026-04-22 12:42:00",
+        "finishedAt": null
+    },
+    {
+        "id": 6,
+        "title": "Optimize Query That Ages Like Milk",
+        "description": "A database query slows down more every day. Analyze and optimize it before it reaches geological time scales.",
+        "status": "pending",
+        "user": "Riley",
+        "createdAt": "2026-04-22 12:42:27",
+        "finishedAt": null
+    },
+    {
+        "id": 7,
+        "title": "Remove \u201cTemporary\u201d Code from 2019",
+        "description": "Hunt down all TODOs and temporary fixes that have been living comfortably in the codebase for years and resolve them properly.",
+        "status": "pending",
+        "user": "Jamie",
+        "createdAt": "2026-04-22 12:42:49",
+        "finishedAt": null
+    }
+]
