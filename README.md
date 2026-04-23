@@ -1,7 +1,8 @@
 # 🚥  ToDo List 
 A lightweight task management application built with a custom Model-View-Controller (MVC) framework in PHP. The project focuses on clean architectural separation, basic CRUD operations, and a simple state management system using JSON for persistence.
 
-<img width="1920" height="705" alt="Captura de pantalla 2026-04-22 a les 12 46 20" src="https://github.com/user-attachments/assets/ea3d1f18-33e8-464a-984f-c27b356ab345" />
+<img width="1920" height="657" alt="image" src="https://github.com/user-attachments/assets/2c767520-e62f-4dbe-96dd-006d7586280a" />
+
 
 ## 🛠️  Tech Stack
 **Back-end** 🧠
